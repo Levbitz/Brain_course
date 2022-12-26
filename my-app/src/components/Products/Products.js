@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Products() {
   const [myProducts, setMyProducts] = useState([""]);
@@ -30,19 +31,23 @@ function Products() {
         </>
       ) : (
         <>
-          {myProducts.map((item) => {
+          {myProducts.slice(0, 4).map((item) => {
             console.log(item);
             return (
               <>
-                <div className="col l2 s6" key={item.id}>
-                  <img
-                    className="responsive-img"
-                    src={item.image}
-                    alt={item.title}
-                  />
-                  <p>{item.title}</p>
-                  <p>{item.price}</p>
-                </div>
+                <Link key={item.id} to={`/details/${item.id}`}>
+                  <div className="col l3 s6">
+                    <img
+                      // className="responsive-img"
+                      src={item.image}
+                      alt={item.title}
+                      width="100"
+                      height="100"
+                    />
+                    <p>{item.title}</p>
+                    <p>{item.price}</p>
+                  </div>
+                </Link>
               </>
             );
           })}

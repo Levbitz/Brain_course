@@ -2,31 +2,25 @@ import React from "react";
 import Student from "./Students";
 import Couter from "./Couter";
 import Form from "./Form";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import HomePage from "./Pages/HomePage/HomePage";
+import AboutUsPage from "./Pages/AboutPage/AboutUsPage";
+import ContactPage from "./Pages/ContactPage/ContactPage";
+import DetailsPage from "./Pages/DetailsPage/DetailsPage";
+import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   return (
-    <React.Fragment>
-      <HomePage />
-
-      {/*<Form />
-
-      <h3 className="center">My Counter</h3>
-
-      <Couter />
-
-      <h4>List of Students</h4>
-      {stundentList.map(function (singleStudent, index) {
-        return (
-          <Student
-            name={singleStudent.name}
-            age={singleStudent.age}
-            children={"Kampala"}
-          />
-        );
-      })}*/}
-    </React.Fragment>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/details/:id" element={<DetailsPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
@@ -64,3 +58,22 @@ const stundentList = [
     age: 30,
   },
 ];
+
+// {
+//   /*<Form />
+
+//       <h3 className="center">My Counter</h3>
+
+//       <Couter />
+
+//       <h4>List of Students</h4>
+//       {stundentList.map(function (singleStudent, index) {
+//         return (
+//           <Student
+//             name={singleStudent.name}
+//             age={singleStudent.age}
+//             children={"Kampala"}
+//           />
+//         );
+//       })}*/
+// }
