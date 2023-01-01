@@ -16,7 +16,7 @@ function Navbar() {
             <Link to="/contact">Contact us</Link>
           </li>
           <li>
-            <a href="collapsible.html">JavaScript</a>
+            <Link to="category/electronics">JavaScript</Link>
           </li>
         </ul>
       </div>

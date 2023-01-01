@@ -9,18 +9,23 @@ import AboutUsPage from "./Pages/AboutPage/AboutUsPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import DetailsPage from "./Pages/DetailsPage/DetailsPage";
 import Navbar from "./components/Navbar/Navbar";
+import { DataProvider } from "./context/productContext";
+import Category from "./Pages/Category/Category";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutUsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/details/:id" element={<DetailsPage />} />
-      </Routes>
-    </BrowserRouter>
+    <DataProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/details/:id" element={<DetailsPage />} />
+          <Route path="/category/:cat" element={<Category />} />
+        </Routes>
+      </BrowserRouter>
+    </DataProvider>
   );
 };
 
